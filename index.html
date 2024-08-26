@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+	<link rel="stylesheet" href="index.css">
+	<title>Group 4- Science Dynamics</title>
+</head>
+
+<body>
+  <header>
+	<a href="#home" class="logo">Science Dynamics</a>
+	<i class="fa-solid fa-bars menu-toggle"></i>
+		<nav>
+			<a href="#home">Home</a>
+			<a href="#elements">Essential Elements</a>
+			<a href="#water-cycle">Water & Water Cycle</a>
+			<a href="#interactive">Interactive</a>
+			<a href="#reference">Reference</a>
+			<a href="#about-us">About Us</a>
+		</nav>
+  </header>
+
+  <section id="home" class="home">
+	<div class="home-img">
+	  	<!-- <img src="/images/main.jpg" alt=""> -->
+	</div>
+	<div class="home-content">
+		<h1>Hi, We Are <span>The Amazing Scientists</span></h1>
+		<h3 class="typing-text">We are <span></span></h3>
+		<p>Are you looking for a website for chemical elements? Well, this website is for you!
+			Learn, Explore and Enjoy!
+		</p>
+		<div class="social-icons">
+			<a href="#"><i class="fa-brands fa-youtube"></i></a>
+			<a href="#"><i class="fa-brands fa-google"></i></a>
+			<a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+			<a href="#"><i class="fa-brands fa-instagram"></i></a>
+		</div>
+		<a href="#" class="btn">Click me</a>
+	</div>
+  </section>
+
+
+  <section id="elements" class="section">
+		<h1>Essential Elements</h1>
+		<div class="periodic-table">
+			<div class="element" data-symbol="H" data-name="Hydrogen" data-atomic-number="1">
+				<span class="symbol">H</span>
+				<span class="number">1</span>
+			</div>
+
+			<div class="element" data-symbol="He" data-name="Helium" data-atomic-number="2">
+				<span class="symbol">He</span>
+				<span class="number">2</span>
+			</div>
+
+			<div class="element" data-symbol="Li" data-name="Lithium" data-atomic-number="3">
+				<span class="symbol">Li</span>
+				<span class="number">3</span>
+			</div>
+
+			<div class="element" data-symbol="Be" data-name="Beryllium" data-atomic-number="4">
+				<span class="symbol">Be</span>
+				<span class="number">4</span>
+			</div>
+
+			<div class="element" data-symbol="F" data-name="Fluorine" data-atomic-number="9">
+				<span class="symbol">F</span>
+				<span class="number">9</span>
+			</div>
+
+			<div class="element" data-symbol="Ne" data-name="Neon" data-atomic-number="10">
+				<span class="symbol">Ne</span>
+				<span class="number">10</span>
+			</div>
+
+			<div class="element" data-symbol="Na" data-name="Sodium" data-atomic-number="11">
+				<span class="symbol">Na</span>
+				<span class="number">11</span>
+			</div>
+
+			<div class="element" data-symbol="Mg" data-name="Magnesium" data-atomic-number="12">
+				<span class="symbol">Mg</span>
+				<span class="number">12</span>
+			</div>
+			
+			<div class="element" data-symbol="Cl" data-name="Chlorine" data-atomic-number="17">
+				<span class="symbol">Cl</span>
+				<span class="number">17</span>
+			</div>
+			
+			<div class="element" data-symbol="Ar" data-name="Argon" data-atomic-number="18">
+				<span class="symbol">Ar</span>
+				<span class="number">18</span>
+			</div>
+
+			<div class="element" data-symbol="Ca" data-name="Calcium" data-atomic-number="20">
+				<span class="symbol">Ca</span>
+				<span class="number">20</span>
+			</div>
+
+			<div class="element" data-symbol="Br" data-name="Bromine" data-atomic-number="35">
+				<span class="symbol">Br</span>
+				<span class="number">35</span>
+			</div>
+		</div>
+
+		<div class="underline"></div>
+
+		<div id="description-area">
+			<h2 id="element-details">Element Details</h2>
+			<p id="element-description">Select an element to see details here.</p>
+
+			<div id="longer-description" class="hidden">
+				<div class="underline"></div>
+				<div id="reference-images">
+					<img src="images/elements/placeholder.jpg" alt="">
+					<img src="images/elements/placeholder.jpg" alt="">
+				</div>
+				<p id="long-description">Longer Description</p>
+			</div>
+			<button id="toggle-collapse" class="hidden">V</button>
+		</div>
+  </section>
+
+  <section id="water-cycle" class="section">
+	<h2>Water & Water Cycle</h2>
+  </section>
+
+	<section id="interactive" class="section">
+		<h2>Interactive</h2>
+		<div class="game-container">
+			<h1>Wordle: Elements & Water Cycle</h1>
+			<div id="board"></div>
+			<div id="message"> </div>
+			<input type="text" id="guessInput" placeholder="Enter your guess" />
+			<button id="guessButton">Guess</button>
+		</div>
+	</section>
+
+  <section id="reference" class="section">
+	<h2>Reference</h2>
+  </section>
+
+  <section id="about-us" class="section">
+	<h2>About Us</h2>
+  </section>
+
+  <script src="navigation.js"></script>
+  <script src="wordle.js"></script>
+  <script src="essential-elements.js"></script>
+
+</body>
+
+</html>

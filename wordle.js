@@ -2,18 +2,18 @@ const words = getWordList();
 let currentWord = words[Math.floor(Math.random() * words.length)];
 console.log(`DEBUG PURPOSES ONLY! THE CURRENT WORD IS: ${currentWord}`);
 
-
 const board = document.getElementById("board");
 const message = document.getElementById("message");
 const guessInput = document.getElementById("guessInput");
 const guessButton = document.getElementById("guessButton");
+let gameOver = false;
 
 let guesses = [];
 
 function initializeBoard() {
     const letterBoxSize = 45;
     guessInput.setAttribute('maxLength', `${currentWord.length}`);
-
+    
     for (let i = 0; i < currentWord.length * 6; i++) { // 6 guesses x 5 letters
         board.style.gridTemplateColumns = `repeat(${currentWord.length}, ${letterBoxSize}px)`;
         const letterDiv = document.createElement("div");
@@ -45,6 +45,12 @@ function checkGuess() {
     const guess = guessInput.value.toLowerCase();
     const wordLength = currentWord.length;
 
+    if (gameOver) {
+        onRestart();
+        return;
+    }
+
+
     if (guess.length !== currentWord.length) {
         message.textContent = `Please enter a ${wordLength}-letter word.`;
         return;
@@ -60,10 +66,14 @@ function checkGuess() {
 
     if (guess === currentWord) {
         message.textContent = "Congratulations! You guessed the word!";
-        guessButton.disabled = true;
+        guessButton.textContent = "Restart";
+        guessInput.disabled = true;
+        gameOver = true;
     } else if (guesses.length === 6) {
         message.textContent = `Game Over! The word was ${currentWord}.`;
-        guessButton.disabled = true;
+        guessButton.textContent = "Restart";
+        guessInput.disabled = true;
+        gameOver = true;
     } else {
         message.textContent = "Try again!";
     }
@@ -72,22 +82,36 @@ function checkGuess() {
     guessInput.focus();
 }
 
+function onRestart() {
+    gameOver = false;
+    
+    board.innerHTML = '';
+    guesses = [];
+
+    currentWord = words[Math.floor(Math.random() * words.length)];
+    console.log(`DEBUG PURPOSES ONLY! THE CURRENT WORD IS: ${currentWord}`);
+    guessInput.disabled = false;
+    initializeBoard();
+}
+
 message.textContent = "."
-guessButton.addEventListener("click", checkGuess);
+guessButton.addEventListener("click", () => {
+    checkGuess();
+});
 guessInput.addEventListener("keyup", function(event) {
     if (event.key === "Enter") {
         checkGuess();
     }
 });
 
-initializeBoard();
-
 function getWordList() {
     return [
-        "water", "cycle", "cloud", "rain", "hydro", "steam", "solid", "gas", "liquid", 
-        "oxygen", "neon", "argon", "sodium", "zinc", "xenon", "boron", "water", "carbon",
-        "snow", "hail", "mist", "drip", "flow", "spray", "flood", "storm",
-        "vapor", "drops", "pools", "waves", "glaze", "frost", "sleet", "delta", "basin",
-        "gully", "brook", "swale", "evaporation", "condensation", "trans", "infil", "runoff"
+        "water", "cycle", "cloud", "rain", "moist", "steam", "solid", "gas", "liquid", 
+        "chlorine", "Nitrogen", "oxygen", "sulfur", "zinc", "Phosphorus", "hydrogen", "water", "carbon",
+        "snow", "Cobalt", "mist", "drip", "flow", "calcium", "aqua", "storm",
+        "vapor", "waterdrop", "Magnesium", "waves", "filtration", "frost", "hydrologic", "delta", "precipitation",
+        "system", "Potassium", "oceans", "evaporation", "condensation", "atmosphere", "filtration", "runoff"
     ]
 }
+
+initializeBoard();
